@@ -12,9 +12,9 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "episodes"
-    label: "Episodes"
-    label_singular: "Episode"
+  - name: "blog"
+    label: "Blog"
+    label_singular: "Post"
     folder: "src/pages/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -23,10 +23,28 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
-      - {label: "Featured Post", name: "featuredpost", widget: "boolean"}
+      - {label: "Featured Post", name: "featuredpost", widget: "boolean", required: false}
       - {label: "Featured Image", name: "featuredimage", widget: image}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
+      
+  - name: "episodes"
+    label: "Episodes"
+    label_singular: "Episode"
+    folder: "src/pages/episodes"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Featured Post", name: "featuredpost", widget: "boolean", required: false}
+      - {label: "Featured Image", name: "featuredimage", widget: image}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Season", name: "season", widget: "number"}
+      - {label: "Episode", name: "episode", widget: "number"}
 
   - name: "pages"
     label: "Pages"
